@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./header") %>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+<body>
+    
+    <br>
+    <br>
+    <% if(store.length>0){ %>
+        <div>
+      <% for(stationary of store ){ %>
+       <a href="/details/<%= stationary._id %>"><div class="card-user" >
+          
+      <img src="../uploads/<%= stationary.image %>" alt="profileimage">
+          <div class="container-user" >
+       <% const des = stationary.price + 50  %>     
+      <h5><b><%= stationary.title %></b></h5>
+      <i>Price:<%= stationary.price %> <del style="color: red;"><%= des %></del><i>
+  </div>
+    
+  </div></a>
+      <% } %>
+        </div>
+      <% } else { %>
+      <h1>Product not found</h1>
+      <% } %>
+      <br>
+    <%- include("./footer") %>   
+    
+</body>
+</html>
